@@ -12,33 +12,37 @@ Obviously, the browser has to remember that it visited a website before and that
 
 By analyzing the information from the HSTS cache, it is possible to find evidence about what domains were contacted by the browser and when and why. Please keep in mind that the browser stores HSTS data for domains that it *contacted*. The reason for contacting a domain can be for example that a user browsed the website, but it can also be that a resource was (implicitly) loaded from a domain when a user visited a website on another domain. There are also domains that browsers contact because of built-in functionality, such as update checks etc. This means, if you see an HSTS entry in the cache, you cannot always tell whether a contact to a domain happened on purpose or was side effect of another action.
 
+This document's purpose is to document the behaviour of different software in storing, maintaining and deleting cached HSTS data.
+
+This tool's purpose is to have a unified tool that translates the different cache formats into CSV outputs that are easily readable and processable for people and other software. In the end, it is easier to focus on the content of the cache, include the data into timelines and look for evidence of website visits. Furthermore, for the Chrome HSTS cache format, this tools provides an easy to use functionality to translate hashed (unreadable) domain names into readable domain names.
+
 ## Supported browsers / software
 
 This tool supports the HSTS cache format of Firefox, Chrome, Safari, wget, libsoup, and curl. However, not only Firefox and Chrome make use of their formats. As a result, several other software is supported.
 
 ### Firefox format
 
-* Firefox
-* Thunderbird
+* Firefox (tested versions: 85-88)
+* Thunderbird (tested version: 78.10)
 * Forks of Firefox or Thunderbird
 
 ### Chrome format
 
 * Chrome
-* Chromium
+* Chromium (tested versions: 89, 90)
 * Edge (Chrome-based)
 * Other browsers that make use of the Chrome engine
 * Visual Studio Code
-* Microsoft Teams (at least the Linux desktop app)
+* Microsoft Teams (at least the Linux desktop app, tested version: 1.4.00.7556 on Debian)
 * Other software that makes use of Chrome
 
 ### wget
 
-* wget
+* wget (tested version: 1.21)
 
 ### libsoup
 
-* Eclipse (and maybe other tools)
+* Software that uses Gnome libsoup (tested version: 2.4).
 
 ### Safari
 
@@ -46,7 +50,7 @@ This tool supports the HSTS cache format of Firefox, Chrome, Safari, wget, libso
 
 ### curl
 
-* curl
+* curl (starting with version 7.74.0)
 
 ## The different HSTS cache formats
 
